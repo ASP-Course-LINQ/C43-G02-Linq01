@@ -183,6 +183,10 @@
             //                                                     // Because the object that this variable hold address of it has different properties which is [Id - Name]
             //                                                     // not [Id - Name - Salary]
 
+
+            //Use Anonymous Type , When You need to make anonymous object Which not has specific type in compile time
+            //and need to hold address of it in anonymous type.
+
             #endregion
 
         }

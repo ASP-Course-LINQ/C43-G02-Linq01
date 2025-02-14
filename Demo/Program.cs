@@ -104,8 +104,8 @@
 
             //int num = 54879;
 
-            ////IntExtension.ReverseInt(ref num);
-            //num.ReverseInt();// Call it as Extension Method - [object[int num] member method].
+            ////IntExtension.ReverseInt(ref num);// Call it as class member method [throw class name].
+            //num.ReverseInt();// Call it as Extension Method - [object[int num] member method] [throw object from class].
 
             //Console.WriteLine(num);// 97845
 
@@ -160,7 +160,7 @@
             // ///  * You can Make Variables Contain Anonymous objects and those variables will be with same dataType as long as :
             // ///  * 1. Same properties name of objects [Case Sensitive].
             // ///  * 2. Same properties Order.
-  
+
 
             ////Example01 - Different properties name of objects [Case Sensitive].
             //var Emp04 = new { id = 70, Name = "Khalid", Salary = 4000 };
@@ -186,6 +186,43 @@
 
             //Use Anonymous Type , When You need to make anonymous object Which not has specific type in compile time
             //and need to hold address of it in anonymous type.
+
+            #endregion
+
+            #region Part 04 What Is LinQ - [Language Integrated Query]
+            ///// Linq Represent The DQL Category[select - groupBy - where - join ] of Database 
+            ///// Implement those operators of DQL as C# functions
+            ///// LinQ is Represent +40 Extension Method [operator].( method == operator ) in LinQ
+            ///// When i need to communicate with DB through application [in Visual Studio],
+            ///// You will write LinQ operators [Syntax] or SQL Commands [Syntax] ?
+            ///// If you write SQL commands syntax in you app, your app will can communicate only with SQL server Database
+            ///// And can't communicate with another DataBase.
+            ///// If you write LinQ operators syntax in you app, your app will can communicate any database provider, with help of entity framework
+            ///// based on type of database connected with app.
+            ///// You can use those Linq operators [Extension] methods with all collections that implement
+            ///// the IEnumerable<T> interface.
+            ///// Those Extension Methods [LINQ Operators] are inside the Enumerable Class.
+            ///// Those +40 LINQ methods are categorized into 13 category.
+            ///// You can use those LINQ operators with/against any collection/sequence that implement IEnumerable<T> interface
+            ///// You can use those LINQ operators with/against any Data[Stored in sequence] Regardless this data came from [collection - SQLSERVER - Oracle - ....]
+            ///// sequence -> any object from class implement IEnumerable<T> interface.
+            /////     1- Local Sequence -> Contain Static data Like List<int> nums = [1,2,3,4,5,6,7,8,9,10].
+            /////                          Contains data came from Xml File
+            /////     2- Remote Sequence -> Data came from Database Remote.
+            /////
+            ///// Using LINQ operators with sequence/object contain static data called [LinQ with/against object] -> L2Object
+            ///// Using LINQ operators with sequence/object XML data called [LinQ with/against XML] -> L2XML
+            ///// Using LINQ operators with remote sequence like Database that contain data called [LinQ with/against entityFrameWork] -> L2EF
+
+            //List<int> nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            //var evenNumbers = nums.Where(num => num % 2 == 0);// Call it throw object [object member method]. 
+            //// where() => Return IEnumerable<T> so you can receive the return into variable of type "IEnumerable<T>" or "var" or cast the return to type List<int> and receive it into variable of type List<int>
+            //List<int> evenNumbers02 = Enumerable.Where(nums, num => num % 2 == 0).ToList();// call it throw class [class member method]
+
+            //Console.WriteLine(string.Join(", ",evenNumbers));  // 2, 4, 6, 8, 10
+            //Console.WriteLine(string.Join(", ",evenNumbers02));// 2, 4, 6, 8, 10
+
+
 
             #endregion
 

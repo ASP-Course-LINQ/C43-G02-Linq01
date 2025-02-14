@@ -112,6 +112,79 @@
             #endregion
 
             #endregion
+
+            #region Part 03 Anonymous Type
+
+            //Employee employee = new Employee() { Id = 5, Name = "Eslam", Salary = 1000 };
+            //Console.WriteLine(employee.GetType().Name);//Employee [Type of variable "employee"]
+
+            ////But I Don't need this class anyMore, i just create it to make object from it
+            ////and to can hold address of it inside reference of object type which is "Employee".
+
+            //int x = 5;
+            //Console.WriteLine(x.GetType().Name);//Int32 [Type of variable "x"]
+
+            ////So you don't need to make class to just use it to take reference from it to hold object of class type
+            ////You can make anonymous object with no type, and hold address of it inside variable of type "var".
+            ////this variable will be of type "Anonymous Type".
+
+            //var Emp = new { Id = 100, Name = "Eslam Elsaadany", Salary = 10000 };
+            //Console.WriteLine(Emp.GetType().Name);//<>f__AnonymousType0`3 [Type of variable "Emp"]
+            //                                      // 0 -> Refer to that this is the first anonymous type made.
+            //                                      // 3 -> Refer to number of properties inside the anonymous object
+            //                                      // that variable "Emp" from anonymous type refer to.
+
+            ////This object Which is of type Anonymous Type is an Immutable object [Can't be changed].
+            ////Emp.Salary = 2000;//Invalid [Can't modify the object]
+            //Console.WriteLine(Emp.Salary);//10000 [Valid]
+
+            ////But There is a way to modify state of the anonymous object =>
+            ////01 - Create new object with same state of previous object [Till c# 9.0]
+            //var Emp02 = new { Id = Emp.Id, Name = Emp.Name, Salary = 20000 };
+            ////02 - Create new object with same state of previous object - After c# 9.0
+            //var Emp03 = Emp with { Salary = 20000 };
+
+            //Console.WriteLine($"Emp =   {Emp}");  // Emp   = { Id = 100, Name = Eslam Elsaadany, Salary = 10000 }
+            //Console.WriteLine($"Emp02 = {Emp02}");// Emp02 = { Id = 100, Name = Eslam Elsaadany, Salary = 20000 }
+            //Console.WriteLine($"Emp03 = {Emp03}");// Emp03 = { Id = 100, Name = Eslam Elsaadany, Salary = 20000 }
+
+            //// What is the dataType of each variable (Emp - Emp02 - Emp03) ?
+            //Console.WriteLine($"Emp = {Emp.GetType().Name}");    // Emp   = <>f__AnonymousType0`3
+            //Console.WriteLine($"Emp02 = {Emp02.GetType().Name}");// Emp02 = <>f__AnonymousType0`3
+            //Console.WriteLine($"Emp03 = {Emp03.GetType().Name}");// Emp03 = <>f__AnonymousType0`3
+            //// same data type
+
+
+            // ///* NOTE:
+            // ///
+            // ///  * You can Make Variables Contain Anonymous objects and those variables will be with same dataType as long as :
+            // ///  * 1. Same properties name of objects [Case Sensitive].
+            // ///  * 2. Same properties Order.
+  
+
+            ////Example01 - Different properties name of objects [Case Sensitive].
+            //var Emp04 = new { id = 70, Name = "Khalid", Salary = 4000 };
+            //Console.WriteLine($"Emp04 = {Emp04.GetType().Name}");// Emp04 = <>f__AnonymousType1`3
+            //                                                          // Emp04 variable is of type "<>f__AnonymousType1`3" which is different from type of [Emp - Emp02 - Emp03]
+            //                                                         // Because the object that this variable hold address of it has different "Id" name which is "id" not "Id"
+
+            ////Example02 - Different properties Order
+            //var Emp05 = new { Id = 70, Salary = 4000, Name = "Khalid" };
+            //Console.WriteLine($"Emp05 = {Emp05.GetType().Name}");// Emp05 = <>f__AnonymousType2`3
+            //                                                     // Emp05 variable is of type "<>f__AnonymousType2`3" which is different from type of [Emp - Emp02 - Emp03]
+            //                                                     // Because the object that this variable hold address of it has different order of properties which is [Id - Salary - Name]
+            //                                                     // not [Id - Name - Salary]
+
+
+            ////Example02 - Different properties Order
+            //var Emp06 = new { Id = 70, Name = "Ahmed" };
+            //Console.WriteLine($"Emp06 = {Emp06.GetType().Name}");// Emp04 = <>f__AnonymousType3`2
+            //                                                     // Emp06 variable is of type "<>f__AnonymousType3`2" which is different from type of [Emp - Emp02 - Emp03]
+            //                                                     // Because the object that this variable hold address of it has different properties which is [Id - Name]
+            //                                                     // not [Id - Name - Salary]
+
+            #endregion
+
         }
     }
 }

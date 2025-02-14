@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+
             #region Part 01 Implicitly Typed Local Variable [var - dynamic]
 
             #region var
@@ -81,6 +82,34 @@
 
             //dynamic y = null;
             //Console.WriteLine(y);//Exception => can't detect the type in run time [RuntimeBinderException]
+
+            #endregion
+
+            #region Part 02 Extension Method
+            //Extension method -> is method that you need to add it to built in structs or classes but you can't
+            //So you make extension method for this type plus it's built in method.
+
+            //I need to make method that take int value and reverse it, but the type "int" which is struct
+            //not has method with this signature, so i will make extension method.
+
+            #region Before Make The Extension Method => ReverseInt(this ref int num)
+
+            //int num = 54879;
+            //num.Reverse();//Error, The type "int" not have this method.
+            //Console.WriteLine(num); 
+
+            #endregion
+
+            #region After Make The Extension Method => ReverseInt(this ref int num) - Parameter is the caller of the method.
+
+            //int num = 54879;
+
+            ////IntExtension.ReverseInt(ref num);
+            //num.ReverseInt();// Call it as Extension Method - [object[int num] member method].
+
+            //Console.WriteLine(num);// 97845
+
+            #endregion
 
             #endregion
         }

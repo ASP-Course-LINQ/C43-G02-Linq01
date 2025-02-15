@@ -270,6 +270,47 @@
 
             #endregion
 
+            #region Part 06 LINQ Execution Ways
+
+            #region 01 - Deferred Execution - LinQ operator Work on The Latest Version Of Data.
+            //List<int> nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            ////Filter This List To Return only odd numbers
+
+            //var oddNumbers = nums.Where(num => num % 2 == 1);// Now oddNumbers is of type IEnumerable<int>?
+            //nums.AddRange(new int[] { 11, 12, 13, 14, 15 });
+
+            //Console.WriteLine(string.Join(", ", oddNumbers));// 1, 3, 5, 7, 9, 11, 13, 15
+            ///it's expected to found on console screen => 1, 3, 5, 7, 9
+            ///Because the line of executed where() is came before add new range values to the list
+            ///But we found that the list oddNumbers refer to object contain => 1, 3, 5, 7, 9, 11, 13, 15
+            ///So it's "Deferred Execution" => Where() method is executed with Deferred Execution (تنفيذ مؤجل)
+            ///This Command "var oddNumbers = nums.Where(num => num % 2 == 1);" not executed the line "280" so "Where()" method not executed in this line.
+            ///This Command "var oddNumbers = nums.Where(num => num % 2 == 1);" executed in the line "283" when i use the object from sequence "List<int> nums" to enumeration on it
+            ///so "Where()" method is Executed on this line and work on the latest version of object that reference "oddNumbers" refer to which contain values [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].
+            ///So after it filter it found that odd numbers are "1, 3, 5, 7, 9, 11, 13, 15"
+
+            #endregion
+
+            #region 02 - Immediate Execution [ (Elements - Casting - Aggregate LinQ) operators ]
+            //List<int> nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            ////Filter This List To Return only odd numbers
+
+            ////var oddNumbers = nums.Where(num => num % 2 == 1);// Now oddNumbers is of type "IEnumerable<int>? oddNumbers"
+            //var oddNumbers = nums.Where(num => num % 2 == 1).ToList();// Now oddNumbers is of type "List<int>? oddNumbers" because You use Casting LinQ operator ToList()
+            //                                                          // To convert result from type IEnumerable<int> to type List<int>.
+            //                                                          // So Now Where() method/operator is Executed in the line which i defined it in [Immediate Execution]
+            //                                                          // not Deferred Execution because i use the LinQ casting Operator "ToList()" with it.
+            //nums.AddRange(new int[] { 11, 12, 13, 14, 15 });
+
+            //Console.WriteLine(string.Join(", ", oddNumbers));// 1, 3, 5, 7, 9
+
+            ///When You use "Elements LinQ Operators" or "Casting LinQ Operators" or "Aggregate LinQ operators"
+            ///with Where() - the execution will be immediate Execution When Defining not Deferred execution with latest usage. 
+
+            #endregion
+
+            #endregion
+
         }
     }
 }

@@ -311,6 +311,15 @@
 
             #endregion
 
+            #region Part 07 Data Setup
+
+            ////Done
+            //Console.WriteLine(ListGenerator.CustomersList[0]);// 212, Ahmed Ali, Obere Str. 57, Berlin, , 12209, Germany, 030-0074321, 030-0076545
+            //Console.WriteLine(ListGenerator.ProductsList[0]); // ProductID:1,ProductName:Chai,CategoryBeverages,UnitPrice:18.00,UnitsInStock:100
+
+            #endregion
+
+
         }
     }
 }

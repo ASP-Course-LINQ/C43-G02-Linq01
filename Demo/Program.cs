@@ -1,4 +1,5 @@
-﻿namespace Demo
+﻿using static Demo.ListGenerator;
+namespace Demo
 {
     internal class Program
     {
@@ -319,6 +320,93 @@
 
             #endregion
 
+            #region Part 08 Filteration[Restriction] Operator - Where()
+
+            #region Example 01- Get Elements Out Of Stock
+
+            #region 01- Fluent Syntax - Call LinQ operator "Where()" As Extesnsion Method Throw object from Sequence List<product> productList
+
+            //var ProductsOutOfStock = ListGenerator.ProductsList.Where(product => product.UnitsInStock == 0);
+            //foreach (var product in ProductsOutOfStock)
+            //{
+            //    Console.WriteLine(product);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02- Query Syntax - Query Expression
+
+            //var ProductsOutOfStock = from product in ProductsList
+            //                         where product.UnitsInStock == 0
+            //                         select product;
+
+            //foreach (var item in ProductsOutOfStock)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
+            #region Example 02 - Get Elements In Stock And In Category Of Meat/Poultry
+
+            #region 01- Fluent Syntax - Call LinQ operator "Where()" As Extesnsion Method Throw object from Sequence List<product> productList
+
+            //var result = ListGenerator.ProductsList.Where(product => product.UnitsInStock != 0 && product.Category == "Meat/Poultry");
+            //foreach (var product in result)
+            //{
+            //    Console.WriteLine(product);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02- Query Syntax - Query Expression
+
+            //var result = from product in ProductsList
+            //             where product.UnitsInStock != 0 && product.Category == "Meat/Poultry"
+            //             select product;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
+            #region Example 03 - Get Elements Out Of Stock In First 10 Elements/products
+            //Using second overload of Where(Func<Product,int,bool> predicate) [Indexed Where()] that take parameter of type delegate(Func)/function that take 2 parameters (Product,int) and return bool
+            //This int parameter Represent index of every product in the productList. 
+
+            #region 01- Fluent Syntax - Call LinQ operator "Where()" As Extesnsion Method Throw object from Sequence List<product> productList
+
+            ////var result = ProductsList.Where(delegate (Product p, int i) { return p.UnitsInStock == 0 && i <= 9; });
+            //var result = ProductsList.Where((p, i) => p.UnitsInStock == 0 && i <= 9);
+            ////Return The products that index of them is less than or equal 9, filter on first 10 products.
+            ////i represent index of each product in productList [Zero based index] 
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion 
+
+            #region 02- Query Syntax - Query Expression
+
+            //Query Syntax Not Supported/Valid with Indexed Where(Func<Product,int,bool> predicate) 
+
+            #endregion
+
+            #endregion
+
+            #endregion
 
         }
     }

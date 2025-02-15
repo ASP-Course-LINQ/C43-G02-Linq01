@@ -21,7 +21,7 @@ namespace Demo
 
 
         public override string ToString()
-            => $"ProductID:{ProductID},ProductName:{ProductName},Category{Category},UnitPrice:{UnitPrice},UnitsInStock:{UnitsInStock}";
+            => $"ProductID:{ProductID}, ProductName:{ProductName}, Category:{Category}, UnitPrice:{UnitPrice}, UnitsInStock:{UnitsInStock}";
 
     }
     class Customer

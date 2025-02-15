@@ -48,7 +48,7 @@ namespace Demo
 
         }
         public override string ToString()
-            => $"{CustomerID}, {CustomerName}, {Address}, {City}, {Region}, {PostalCode}, {Country}, {Phone}, {Fax}";
+            => $"CustomerID: {CustomerID},CustomerName: {CustomerName},Address: {Address},City: {City},Region: {Region},PostalCode: {PostalCode},Country: {Country},Phone: {Phone},Fax: {Fax}";
     }
     class Order
     {

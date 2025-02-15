@@ -396,11 +396,215 @@ namespace Demo
             //}
             //Console.WriteLine();
 
-            #endregion 
+            #endregion
 
             #region 02- Query Syntax - Query Expression
 
             //Query Syntax Not Supported/Valid with Indexed Where(Func<Product,int,bool> predicate) 
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region Part 09 Transformation[Projection العرض] Operators - [Select , Select Many]
+
+            #region Example 01 - Select Product Name
+
+            #region 01 - Fluent Syntax
+
+            //var ProductsName = ProductsList.Select(product => product.ProductName);
+
+            //foreach (var item in ProductsName)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from product in ProductsList
+            //             select product.ProductName;
+
+            //foreach (var productName in result)
+            //{
+            //    Console.WriteLine(productName);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
+            #region Example 02 - Select Customer Name
+
+            #region 01 - Fluent Syntax
+
+            //var CustomersName = CustomersList.Select(customer => customer.CustomerName);
+
+            //foreach (var name in CustomersName)
+            //{
+            //    Console.WriteLine(name);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from Customer in CustomersList
+            //             select Customer.CustomerName;
+
+            //foreach (var customerName in result)
+            //{
+            //    Console.WriteLine(customerName);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
+            #region Example 03 - Select Customer Orders
+            //Use SelectMany() Here Because you need to select data in collection "Order[] Orders" throw another collection "List<customer> customersList"
+
+            #region 01 - Fluent Syntax
+
+            //var result = CustomersList.SelectMany(customer => customer.Orders);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from customer in CustomersList
+            //             from order in customer.Orders
+            //             select order;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine( );
+
+            #endregion
+
+            #endregion
+
+            #region Example 04 - Select Product Id and Product Name
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.Select(product => new { product.ProductID, product.ProductName });
+            //                                            return object of type Anonymous Type
+            //                                            CLR Will make Class for this Type and override ToString() method 
+            //                                            To print object(of type Anonymous) properties values.              
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from product in ProductsList
+            //             select new { product.ProductID, product.ProductName };
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
+            #region Example 05 - Select Product in stock and apply discount 10% on it's price
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.Where(p => p.UnitsInStock != 0)
+            //                           .Select(p => new
+            //                           {
+            //                               ID = p.ProductID,
+            //                               Name = p.ProductName,
+            //                               OldPrice = $"{p.UnitPrice:c}",
+            //                               Discount = "10%",
+            //                               NewPrice = $"{p.UnitPrice - (p.UnitPrice * .10m):c}",
+            //                               Saved = $"{p.UnitPrice - (p.UnitPrice - (p.UnitPrice * .10m)):c}"
+            //                           });
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from p in ProductsList
+            //             where p.UnitsInStock != 0
+            //             select new
+            //             {
+            //                 ID = p.ProductID,
+            //                 Name = p.ProductName,
+            //                 OldPrice = $"{p.UnitPrice:c}",
+            //                 Discount = "10%",
+            //                 NewPrice = $"{p.UnitPrice - (p.UnitPrice * .10m):c}",
+            //                 Saved = $"{p.UnitPrice - (p.UnitPrice - (p.UnitPrice * .10m)):c}"
+            //             };
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
+            #region Example 06 - Return index and name All products in stock.
+            //Use Indexed Select(Func<Product,int,Tout> selector).
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.Where(p => p.UnitsInStock != 0)//result is of type "IEnumerable<string>" as the return is of type "string"
+            //                         .Select((product, i) => $"{i}-{product.ProductName}");
+
+            //var result02 = ProductsList.Where(p => p.UnitsInStock != 0)//result02 is of type "IEnumerable<`a>" as the return is of type "Anonymous Type"
+            //                         .Select((product, i) => new { Id = i, Name = product.ProductName });
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            
+            //Console.WriteLine();
+
+            //foreach (var item in result02)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //Can't use Query Syntax with indexed Select().
 
             #endregion
 

@@ -226,6 +226,50 @@
 
             #endregion
 
+            #region Part 05 LINQ Syntax
+
+            //List<int> nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+            #region 01 - Fluent Syntax - Recommended
+
+            #region 01.1 - Call The LinQ operator "Where()" as Static method [Throw class name[Enumerable.Where()]] - Not Recommended
+            ////Filter This List to return just odd numbers using one of the LinQ operator
+
+            //var oddNums = Enumerable.Where(nums, num => num % 2 == 1);
+            //Console.WriteLine(string.Join(", ", oddNums));// 1, 3, 5, 7, 9 
+
+            #endregion
+
+            #region 01.2 - Call the LinQ operator "Where()" as object member method [Extension Method] throw object from any sequence/class implement the IEnumerable<T> interface - Recommended
+            ////Filter This List to return just odd numbers using one of the LinQ operator
+
+            //var oddNums02 = nums.Where(num => num % 2 == 1);
+            //Console.WriteLine(string.Join(", ", oddNums02));// 1, 3, 5, 7, 9 
+
+            #endregion
+
+            #endregion
+
+            #region 02 - Query Syntax - Like SQL SERVER Queries style.
+            /// Like Writing Query in Sql to get data or make any operation on database.
+            /// But You Write The Query here with order of execution. 
+            /// start with from - where - select
+            /// Query must begin with "from" and end with "select" or "group by" 
+
+            ////Filter This List to return just odd numbers using one of the LinQ operator
+
+            //var oddNumbers = from Num in nums // Num Is Represent each number in sequence.
+            //                 where Num % 2 == 1
+            //                 select Num;
+
+            //Console.WriteLine(string.Join(", ",oddNumbers));// 1, 3, 5, 7, 9
+
+            #endregion
+
+            ////If there are joins and group by to reach result, you will found that Query syntax more easy.
+
+            #endregion
+
         }
     }
 }

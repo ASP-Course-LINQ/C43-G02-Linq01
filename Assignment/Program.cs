@@ -464,6 +464,38 @@ namespace Assignment
 
             #endregion
 
+            #region P03|Q06 - Select all orders where the order total is less than 500.00.
+
+            #region 01- Fluent Syntax
+
+            //var result = CustomersList.SelectMany(order => order.Orders)
+            //                           .Where(order => order.Total < 500);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from customer in CustomersList
+            //             from order in customer.Orders
+            //             where order.Total < 500m
+            //             select order;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
             #endregion
 
         }

@@ -437,13 +437,13 @@ namespace Assignment
 
             #region 01 - Fluent Syntax
 
-            //var result = numbersA.SelectMany(numA => numbersB.Where(numB => numA < numB).Select(numB => (numA, numB)));
+            //var result = numbersA.SelectMany(numA => numbersB.Where(numB => numA < numB).Select(numB => new { A = numA,B = numB}));
 
             //foreach (var item in result)
             //{
-            //    Console.WriteLine($"{item.numA} is less than {item.numB}");
+            //    Console.WriteLine($"{item.A} is less than {item.B}");
             //}
-            //Console.WriteLine(); 
+            //Console.WriteLine();
 
             #endregion
 
@@ -452,13 +452,13 @@ namespace Assignment
             //var result = from numA in numbersA
             //             from numB in numbersB
             //             where numA < numB
-            //             select (numA, numB);
+            //             select new { A = numA, B = numB};
 
             //foreach (var item in result)
             //{
-            //    Console.WriteLine($"{item.numA} is less than {item.numB}");
+            //    Console.WriteLine($"{item.A} is less than {item.B}");
             //}
-            //Console.WriteLine(); 
+            //Console.WriteLine();
 
             #endregion
 

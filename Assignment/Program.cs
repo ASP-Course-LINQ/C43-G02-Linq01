@@ -126,6 +126,40 @@ namespace Assignment
 
             #endregion
 
+            #region P02|Q02 - Uses a custom comparer to do a case-insensitive sort of the words in an array
+
+            //string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+            #region 01 - Fluent Syntax
+
+            //var comparer = new newStringComparer();
+            //var result = Arr.OrderBy(str => str, comparer);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from str in Arr
+            //         orderby str ascending
+            //         select str;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+
+            #endregion
+
+            #endregion
+
             #endregion
 
         }

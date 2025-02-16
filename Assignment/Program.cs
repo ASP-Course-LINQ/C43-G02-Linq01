@@ -254,6 +254,36 @@ namespace Assignment
 
             #endregion
 
+            #region P02|Q06 - Sort a list of products, first by category, and then by unit price, from highest to lowest.
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.OrderByDescending(p => p.Category).ThenByDescending(p => p.UnitPrice);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from p in ProductsList
+            //             orderby p.Category descending, p.UnitPrice descending
+            //             select p;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
             #endregion
 
         }

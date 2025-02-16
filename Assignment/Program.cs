@@ -430,6 +430,40 @@ namespace Assignment
 
             #endregion
 
+            #region P03|Q05 - Returns all pairs of numbers from both arrays such that the number from numbersA is less than the number from numbersB.
+
+            //int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+            //int[] numbersB = { 1, 3, 5, 7, 8 };
+
+            #region 01 - Fluent Syntax
+
+            //var result = numbersA.SelectMany(numA => numbersB.Where(numB => numA < numB).Select(numB => (numA, numB)));
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item.numA} is less than {item.numB}");
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from numA in numbersA
+            //             from numB in numbersB
+            //             where numA < numB
+            //             select (numA, numB);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item.numA} is less than {item.numB}");
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #endregion
+
             #endregion
 
         }

@@ -1,4 +1,6 @@
-﻿using static Assignment.ListGenerator;
+﻿using System.Runtime.Intrinsics.Arm;
+using System.Threading;
+using static Assignment.ListGenerator;
 namespace Assignment
 {
     internal class Program
@@ -185,6 +187,37 @@ namespace Assignment
             //    Console.WriteLine(item);
             //}
             //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
+            #region P02|Q04 - Sort a list of digits, first by length of their name, and then alphabetically by the name itself.
+
+            //string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            #region 01 - Fluent Syntax
+
+            //var result = Arr.OrderBy(str => str.Length).ThenBy(str => str);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from str in Arr
+            //             orderby str.Length, str
+            //             select str;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             #endregion
 

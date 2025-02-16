@@ -67,6 +67,30 @@ namespace Assignment
 
             #endregion
 
+            #region P01|Q03 - Returns digits whose name is shorter than their value.
+
+            #region 01 - Fluent Syntax
+
+            //String[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            //var result = Arr.Where((str, i) => str.Length < i);//Indexed Where.
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //Can't use Indexed Where With Query Syntax.
+
+            #endregion
+
+            #endregion
+
             #endregion
         }
     }

@@ -320,7 +320,7 @@ namespace Assignment
 
             #region 01 - Fluent Syntax
 
-            //var result = ProductsList.Select(p => new { p.ProductName });
+            //var result = ProductsList.Select(p =>  p.ProductName );
 
             //foreach (var item in result)
             //{
@@ -333,7 +333,38 @@ namespace Assignment
             #region 02 - Query Syntax
 
             //var result = from p in ProductsList
-            //             select new { p.ProductName };
+            //             select p.ProductName ;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
+            #region P03|Q02 - Produce a sequence of the uppercase and lowercase versions of each word in the original array (Anonymous Types).
+
+            //string[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+
+            #region 01 - Fluent Syntax
+
+            //var result = words.Select(str => new { LowerCase = str.ToLower(), UpperCase = str.ToUpper() });
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from str in words
+            //             select new { LowerCase = str.ToLower(), UpperCase = str.ToUpper() };
 
             //foreach (var item in result)
             //{

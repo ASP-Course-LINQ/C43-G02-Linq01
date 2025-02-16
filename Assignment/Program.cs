@@ -405,6 +405,31 @@ namespace Assignment
 
             #endregion
 
+            #region P03|Q04 - Determine if the value of int in an array match their position in the array.
+
+            //int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            #region 01 - Fluent Syntax
+
+            //List<bool> result = Arr.Select((num, i) => num == i).ToList();
+
+            //Console.WriteLine("Number: In-Place ?");
+            //for (int i = 0; i < Arr.Length; i++)
+            //{
+            //    Console.WriteLine($"{Arr[i]}: {result[i]}");
+            //} 
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //Can't use Query Syntax with Indexed Select.
+
+            #endregion
+
+
+            #endregion
+
             #endregion
 
         }

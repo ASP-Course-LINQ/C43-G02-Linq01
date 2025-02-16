@@ -496,6 +496,38 @@ namespace Assignment
 
             #endregion
 
+            #region P03|Q07 - Select all orders where the order was made in 1998 or later.
+
+            #region 01 - Fluent Syntax
+
+            //var result = CustomersList.SelectMany(customer => customer.Orders)
+            //                              .Where(order => order.OrderDate.Year >= 1998);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from customer in CustomersList
+            //             from order in customer.Orders
+            //             where order.OrderDate.Year >= 1998
+            //             select order;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
             #endregion
 
         }

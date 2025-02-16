@@ -228,13 +228,14 @@ namespace Assignment
 
             #region 01 - Fluent Syntax
 
-            //var result = Arr.OrderBy(str => str.Length).ThenBy(str => str,new newStringComparer());
+            //var comparer = new newStringComparer();
+            //var result = Arr.OrderBy(str => str.Length).ThenBy(str => str, comparer);
 
             //foreach (var item in result)
             //{
             //    Console.WriteLine(item);
             //}
-            //Console.WriteLine(); 
+            //Console.WriteLine();
 
             #endregion
 
@@ -273,6 +274,39 @@ namespace Assignment
             //var result = from p in ProductsList
             //             orderby p.Category descending, p.UnitPrice descending
             //             select p;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
+            #region P02|Q07 - Sort first by-word length and then by a case-insensitive descending sort of the words in an array.
+
+            //string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+            #region 01 - Fluent Syntax
+
+            //var comparer = new newStringComparer();
+            //var result = Arr.OrderBy(str => str.Length).ThenByDescending(str => str, comparer);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from str in Arr
+            //             orderby str.Length, str.ToLower() descending
+            //             select str;
 
             //foreach (var item in result)
             //{

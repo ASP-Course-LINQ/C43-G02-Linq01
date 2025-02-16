@@ -376,6 +376,35 @@ namespace Assignment
 
             #endregion
 
+            #region P03|Q03 - Produce a sequence containing some properties of Products, including UnitPrice which is renamed to Price in the resulting type.
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.Select(p => new { p.ProductID, p.ProductName, Price = $"{p.UnitPrice:c}", p.Category });
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from p in ProductsList
+            //             select new { p.ProductID, p.ProductName, Price = $"{p.UnitPrice:c}", p.Category };
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
             #endregion
 
         }

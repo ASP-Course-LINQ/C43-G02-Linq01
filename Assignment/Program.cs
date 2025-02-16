@@ -137,11 +137,7 @@ namespace Assignment
             //var comparer = new newStringComparer();
             //var result = Arr.OrderBy(str => str, comparer);
 
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //Console.WriteLine();
+            //Console.WriteLine(string.Join(", ",result));
 
             #endregion
 
@@ -151,11 +147,7 @@ namespace Assignment
             //             orderby str.ToLower() ascending
             //             select str;
 
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //Console.WriteLine();
+            //Console.WriteLine(string.Join(", ",result));
 
             #endregion
 
@@ -199,11 +191,7 @@ namespace Assignment
 
             //var result = Arr.OrderBy(str => str.Length).ThenBy(str => str);
 
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //Console.WriteLine();
+            //Console.WriteLine(string.Join(", ",result));
 
             #endregion
 
@@ -213,10 +201,7 @@ namespace Assignment
             //             orderby str.Length, str
             //             select str;
 
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            //Console.WriteLine(string.Join(", ", result));
 
             #endregion
 
@@ -231,11 +216,7 @@ namespace Assignment
             //var comparer = new newStringComparer();
             //var result = Arr.OrderBy(str => str.Length).ThenBy(str => str, comparer);
 
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //Console.WriteLine();
+            //Console.WriteLine(string.Join(", ", result));
 
             #endregion
 
@@ -245,11 +226,7 @@ namespace Assignment
             //             orderby str.Length, str.ToLower()
             //             select str;
 
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //Console.WriteLine();
+            //Console.WriteLine(string.Join(", ", result));
 
             #endregion
 
@@ -294,11 +271,7 @@ namespace Assignment
             //var comparer = new newStringComparer();
             //var result = Arr.OrderBy(str => str.Length).ThenByDescending(str => str, comparer);
 
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //Console.WriteLine(); 
+            //Console.WriteLine(string.Join(", ", result));
 
             #endregion
 
@@ -308,11 +281,31 @@ namespace Assignment
             //             orderby str.Length, str.ToLower() descending
             //             select str;
 
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //Console.WriteLine();
+            //Console.WriteLine(string.Join(", ", result));
+
+            #endregion
+
+            #endregion
+
+            #region P02|Q08 - Create a list of all digits in the array whose second letter is 'i' that is reversed from the order in the original array.
+
+            //string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            #region 01 - Fluent Syntax
+
+            //var result = Arr.Where(str => str.Contains('i')).Reverse();
+
+            //Console.WriteLine(string.Join(", ", result)); 
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = (from str in Arr
+            //             where str.Contains("i")
+            //             select str).Reverse();
+
+            //Console.WriteLine(string.Join(", ",result));
 
             #endregion
 

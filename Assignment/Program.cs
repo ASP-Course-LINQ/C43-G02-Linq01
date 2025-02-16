@@ -1,4 +1,5 @@
-﻿using System.Runtime.Intrinsics.Arm;
+﻿using System.Net.Http.Headers;
+using System.Runtime.Intrinsics.Arm;
 using System.Threading;
 using static Assignment.ListGenerator;
 namespace Assignment
@@ -306,6 +307,39 @@ namespace Assignment
             //             select str).Reverse();
 
             //Console.WriteLine(string.Join(", ",result));
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region Part03 - Transformation/Projection Operators
+
+            #region P03|Q01 - Return a sequence of just the names of a list of products.
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.Select(p => new { p.ProductName });
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from p in ProductsList
+            //             select new { p.ProductName };
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
 
             #endregion
 

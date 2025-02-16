@@ -5,6 +5,7 @@ namespace Assignment
     {
         static void Main(string[] args)
         {
+
             #region Part01 - Restriction Operators
 
             #region P01|Q01 - Find all products that are out of stock.
@@ -92,6 +93,41 @@ namespace Assignment
             #endregion
 
             #endregion
+
+            #region Part02 - Ordering Operators
+
+            #region P02|Q01 -  Sort a list of products by name
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.OrderBy(p => p.ProductName);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from p in ProductsList
+            //             orderby p.ProductName
+            //             select p;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
         }
     }
 }

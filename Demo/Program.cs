@@ -408,7 +408,7 @@ namespace Demo
 
             #endregion
 
-            #region Part 09 Transformation[Projection العرض] Operators - [Select , Select Many]
+            #region Part 09 Transformation[Projection العرض] Operators - [Select() , Select Many()]
 
             #region Example 01 - Select Product Name
 
@@ -592,7 +592,7 @@ namespace Demo
             //{
             //    Console.WriteLine(item);
             //}
-            
+
             //Console.WriteLine();
 
             //foreach (var item in result02)
@@ -605,6 +605,146 @@ namespace Demo
             #region 02 - Query Syntax
 
             //Can't use Query Syntax with indexed Select().
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region Part 10 Ordering Operators [OrderBy() - OrderByDesc() - ThenBy() - ThenByDescending() - Reverse()].
+
+            #region Example 01 - Get Products Ordered By Price Asc
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.OrderBy(product => product.UnitPrice);//order based on unitPrice ASC - return IOrderedEnumerable<product>
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from product in ProductsList
+            //             orderby product.UnitPrice ascending
+            //             select product;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #endregion
+
+            #region Example 02 - Get Products Ordered By Price Desc
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.OrderByDescending(p => p.UnitPrice);////order based on unitPrice DESC - return IOrderedEnumerable<product>
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from product in ProductsList
+            //             orderby product.UnitPrice descending
+            //             select product;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #endregion
+
+            #region Example 03 - Get Products Ordered By Price Asc and Number of items in stock.
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.OrderBy(p => p.UnitPrice).ThenBy(p => p.UnitsInStock);//if two products hve the same UnitPrice, order base on UnitsInStock.
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+
+            #region 02 - Query Syntax
+
+            //var result = from product in ProductsList
+            //             orderby product.UnitPrice ascending, product.UnitsInStock ascending
+            //             select product;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #endregion
+
+            #region Example 04 - Get Products Ordered By Price Asc and Number of items in stock Desc
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.OrderBy(p => p.UnitPrice).ThenByDescending(p => p.UnitsInStock);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from product in ProductsList
+            //             orderby product.UnitPrice ascending, product.UnitsInStock descending
+            //             select product;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
+            #region Exmaple 05 - Get Products out of stock and reverse them.
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.Where(p => p.UnitsInStock == 0).Reverse();//Invert/reverse the order of the elements in the sequence and return "IEnumerable<product>"
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
 
             #endregion
 

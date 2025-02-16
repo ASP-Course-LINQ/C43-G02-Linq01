@@ -148,15 +148,14 @@ namespace Assignment
             #region 02 - Query Syntax
 
             //var result = from str in Arr
-            //         orderby str ascending
-            //         select str;
+            //             orderby str.ToLower() ascending
+            //             select str;
 
             //foreach (var item in result)
             //{
             //    Console.WriteLine(item);
             //}
             //Console.WriteLine();
-
 
             #endregion
 
@@ -218,6 +217,38 @@ namespace Assignment
             //{
             //    Console.WriteLine(item);
             //}
+
+            #endregion
+
+            #endregion
+
+            #region P02|Q05 - Sort first by-word length and then by a case-insensitive sort of the words in an array.
+
+            //string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+            #region 01 - Fluent Syntax
+
+            //var result = Arr.OrderBy(str => str.Length).ThenBy(str => str,new newStringComparer());
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(); 
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from str in Arr
+            //             orderby str.Length, str.ToLower()
+            //             select str;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
 
             #endregion
 

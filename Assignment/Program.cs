@@ -160,6 +160,36 @@ namespace Assignment
 
             #endregion
 
+            #region P02|Q03 - Sort a list of products by units in stock from highest to lowest.
+
+            #region 01 - Fluent Syntax
+
+            //var result = ProductsList.OrderByDescending(p => p.UnitsInStock);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region 02 - Query Syntax
+
+            //var result = from p in ProductsList
+            //             orderby p.UnitsInStock descending
+            //             select p;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #endregion
+
             #endregion
 
         }

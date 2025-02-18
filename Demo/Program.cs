@@ -1,4 +1,5 @@
-﻿using static Demo.ListGenerator;
+﻿using System.IO;
+using static Demo.ListGenerator;
 namespace Demo
 {
     internal class Program
@@ -748,6 +749,572 @@ namespace Demo
 
             #endregion
 
+            #endregion
+
+            #endregion
+
+            #region Part 11 Element Operators - Immediate Execution [First() - Last() - LastOrDefault() - ElementAt() - Single() - SingleOrDefault()]
+            //Valid Only With Fluent Syntax
+            //You can use Hybrid Syntax (Query Expression).(Fluent Syntax).
+
+            #region 01 - First
+
+            #region 01.1 First() 
+
+            ////return object of type nullable, so you need to check first if the returned is null or not before print the result
+            ////Return The First Element/object inside the sequence [Return Only one element of type same as sequence type].
+            ////Throw Exception if the sequence is empty [refer to empty object] or if the sequence refer to null.
+
+            #region 01 - In Case the sequence is not empty.
+
+            //var result = ProductsList.First();
+            //    Console.WriteLine(result);//ProductID:1, ProductName:Chai, Category:Beverages, UnitPrice:$18.00, UnitsInStock:100
+
+            #endregion
+
+            #region 02 - In case the sequence is empty [Contain No Elements].
+
+            //List<Product> list = new List<Product>();
+            //var result = list.First();// System.InvalidOperationException: Sequence contains no elements
+
+            //Console.WriteLine(result);
+
+            #endregion
+
+            #endregion
+
+            #region 01.2 First(Func<Product,bool> predicate)
+            //Returns The First Element in a sequence that satisfied/match the specified condition passed. 
+            //If there is no elements match the condition or sequence is empty => throw Exception (System.InvalidOperationException: Sequence contains no matching element)
+
+            //Example -> Returns The first product out of stock.
+
+            #region 01 - If there are elements matches the condition - returned the first element match.
+
+            //var result = ProductsList.First(p => p.UnitsInStock == 0);
+
+            //Console.WriteLine(result);//ProductID:5, ProductName:Chef Anton's Gumbo Mix, Category:Condiments, UnitPrice:$21.35, UnitsInStock:0
+
+            #endregion
+
+            #region 02 - If no elements in the sequence match the condition - Throw Exception.
+
+            //var result = ProductsList.First(p => p.UnitsInStock == 14569);
+
+            //Console.WriteLine(result);//System.InvalidOperationException: Sequence contains no matching element
+
+            #endregion
+
+            #region 03 - If Sequence is empty - throw Exception.
+
+            //List<Product> products = new List<Product>();
+
+            //var result = products.First(p => p.UnitsInStock == 0);
+
+            //Console.WriteLine(result);//System.InvalidOperationException: Sequence contains no matching element
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region 02 - Last
+
+            #region 02.1 Last()
+
+            ////Return The Last Element/object inside the sequence [Return Only one element of type same as sequence type].
+            ////Throw Exception if the sequence is empty [refer to empty object] or if the sequence refer to "null".
+
+            #region 01 - In case the sequence is not empty [Contain Elements]
+
+            //var result = ProductsList.Last();
+
+            //Console.WriteLine(result);//ProductID:77, ProductName:Original Frankfurter grüne Soße, Category:Condiments, UnitPrice:$13.00, UnitsInStock:32
+
+            #endregion
+
+            #region 02 - In case the sequence is empty [Contain No Elements].
+
+            //List<Product> list = new List<Product>();
+            //var result = list.Last();// System.InvalidOperationException: Sequence contains no elements
+
+            //Console.WriteLine(result);
+
+            #endregion
+
+            ///First() - Last() =>
+            ///Return the first or last item in the sequence if the sequence is not empty
+            ///Throw Exception if the sequence is empty [contain no elements] or if it refer to "null".
+            /// 
+
+            #endregion
+
+            #region 01.2 Last(Func<Product,bool> predicate)
+            //Returns The Last Element in a sequence that satisfied/match the specified condition passed. 
+            //If there is no elements match the condition or sequence is empty => throw Exception (System.InvalidOperationException: Sequence contains no matching element)
+
+            //Example -> Returns The Last product out of stock.
+
+            #region 01 - If there are elements matches the condition - returned the Last element match.
+
+            //var result = ProductsList.Last(p => p.UnitsInStock == 0);
+
+            //Console.WriteLine(result);//ProductID:5, ProductName:Chef Anton's Gumbo Mix, Category:Condiments, UnitPrice:$21.35, UnitsInStock:0
+
+            #endregion
+
+            #region 02 - If no elements in the sequence match the condition - Throw Exception.
+
+            //var result = ProductsList.Last(p => p.UnitsInStock == 14569);
+
+            //Console.WriteLine(result);//System.InvalidOperationException: Sequence contains no matching element
+
+            #endregion
+
+            #region 03 - If Sequence is empty - throw Exception.
+
+            //List<Product> products = new List<Product>();
+
+            //var result = products.Last(p => p.UnitsInStock == 0);
+
+            //Console.WriteLine(result);//System.InvalidOperationException: Sequence contains no matching element
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region 03 - FirstOrDefault
+
+            #region 03.1 FirstOrDefault()
+
+            //If the sequence is empty [contain no elements], returned the default value of the type of the sequence Type.
+            //If the sequence is not empty, return the first element.
+
+            #region 01 - In Case The sequence not empty [Contain Elements] - return the element.
+
+            //var result = ProductsList.FirstOrDefault();
+
+            //if (result != null)
+            //    Console.WriteLine(result);//ProductID:1, ProductName:Chai, Category:Beverages, UnitPrice:$18.00, UnitsInStock:100
+            //else
+            //    Console.WriteLine("");
+
+            #endregion
+
+            #region 02 - In case the sequence is empty [Contain no elements] - return the default value of Sequence type.
+
+            //List<Product> list = new List<Product>();
+
+            //var result = list.FirstOrDefault();
+            //if (result != null)
+            //    Console.WriteLine(result);
+            //else
+            //    Console.WriteLine("No Items!");//No Items!
+            //                                        //Because FirstOrDefault() here return the default value of type Product which is reference type and default value is "null"
+            //                                        //This because the sequence is empty so the return is the default value "null" which holded in variable "result".
+
+            #endregion
+
+            #endregion
+
+            #region 03.2 FirstOrDefault(Func<Product,bool> predicate)
+
+            //Returns The First Element in a sequence that satisfied/match the specified condition passed. 
+            //If there is no elements match the condition or sequence is empty => return the default value of the sequenceType
+
+            //Example -> Returns The first product out of stock.
+
+            #region 01 - If there are elements matches the condition - returned the first element match.
+
+            //var result = ProductsList.FirstOrDefault(p => p.UnitsInStock == 0);
+
+            //Console.WriteLine(result);//ProductID:5, ProductName:Chef Anton's Gumbo Mix, Category:Condiments, UnitPrice:$21.35, UnitsInStock:0
+
+            #endregion
+
+            #region 02 - If no elements in the sequence match the condition - Return the Default value of sequence type.
+
+            //var result = ProductsList.FirstOrDefault(p => p.UnitsInStock == 14569);
+
+            //if(result != null)
+            //    Console.WriteLine(result);
+            //else
+            //    Console.WriteLine("No Elements Match The Condition || Sequence Empty.");//No Elements Match The Condition || Sequence Empty.
+
+            #endregion
+
+            #region 03 - If Sequence is empty - Return the Default value of sequence type.
+
+            //List<Product> products = new List<Product>();
+
+            //var result = products.FirstOrDefault(p => p.UnitsInStock == 0);
+
+            //Console.WriteLine("No Elements Match The Condition || Sequence Empty.");//No Elements Match The Condition || Sequence Empty.
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region 04 - LastOrDefault
+
+            #region 04.1 LastOrDefault()
+
+            //If the sequence is empty [contain no elements], returned the default value of the type of the sequence Type ["0" => ValueTypes , "null" => ReferenceTypes].
+            //If the sequence is not empty, return the Last element.
+
+            #region 01 - In Case The sequence not empty [Contain Elements].
+
+            //var result = ProductsList.LastOrDefault();
+
+            //if (result != null)
+            //    Console.WriteLine(result);//ProductID:77, ProductName:Original Frankfurter grüne Soße, Category:Condiments, UnitPrice:$13.00, UnitsInStock:32
+            //else
+            //    Console.WriteLine("No Elements!");
+
+            #endregion
+
+            #region 02 - In case the sequence is empty [Contain no elements].
+
+            //List<Product> list = new List<Product>();
+
+            //var result = list.LastOrDefault();
+            //if (result != null)
+            //    Console.WriteLine(result);
+            //else
+            //    Console.WriteLine("No Items!");//No Items!
+            //                                        //Because FirstOrDefault() here return the default value of type Product which is reference type and default value is "null"
+            //                                        //This because the sequence is empty so the return is the default value "null" which holded in variable "result".
+
+            #endregion
+
+            ///FirstOrDefault() - LastOrDefault() => 
+            ///Return the first or last item in the sequence if the sequence is not empty
+            ///Return the default value of the type of the sequence if the sequence is empty [Not thrown Exception] ["0" => ValueTypes , "null" => ReferenceTypes].
+            /// 
+
+            #endregion
+
+            #region 04.2 LastOrDefault(Func<Product,bool> predicate)
+
+            //Returns The Last Element in a sequence that satisfied/match the specified condition passed. 
+            //If there is no elements match the condition or sequence is empty => return the default value of the sequenceType
+
+            //Example -> Returns The Last product out of stock.
+
+            #region 01 - If there are elements matches the condition - returned the Last element match.
+
+            //var result = ProductsList.LastOrDefault(p => p.UnitsInStock == 0);
+
+            //Console.WriteLine(result);//ProductID: 53, ProductName: Perth Pasties, Category:Meat / Poultry, UnitPrice:$32.80, UnitsInStock: 0
+
+            #endregion
+
+            #region 02 - If no elements in the sequence match the condition - Return the Default value of sequence type.
+
+            //var result = ProductsList.LastOrDefault(p => p.UnitsInStock == 14569);
+
+            //if(result != null)
+            //    Console.WriteLine(result);
+            //else
+            //    Console.WriteLine("No Elements Match The Condition || Sequence Empty.");//No Elements Match The Condition || Sequence Empty.
+
+            #endregion
+
+            #region 03 - If Sequence is empty - Return the Default value of sequence type.
+
+            //List<Product> products = new List<Product>();
+
+            //var result = products.LastOrDefault(p => p.UnitsInStock == 0);
+
+            //Console.WriteLine("No Elements Match The Condition || Sequence Empty.");//No Elements Match The Condition || Sequence Empty.
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region 05 - ElementAt()
+
+            //Return the element is specific index
+            //If index is out of range of sequence indices or sequence is empty => throw exception (Index out of range).
+
+            #region 01 - Try to return element in actual index in range of sequence indices.
+
+            //var result = ProductsList.ElementAt(0);
+
+            //Console.WriteLine(result);//ProductID:1, ProductName:Chai, Category:Beverages, UnitPrice:$18.00, UnitsInStock:100 
+
+            #endregion
+
+            #region 02 - Try to return element in Invalid index out of sequence indices range.
+
+            //var result02 = ProductsList.ElementAt(100);
+
+            //Console.WriteLine(result02);//System.ArgumentOutOfRangeException: Index was out of range. 
+
+            #endregion
+
+            #region 03 - Try to return element in empty sequence.
+
+            //List<Product> products = new List<Product>();
+            //var result03 = products.ElementAt(0);
+
+            //Console.WriteLine(result03);//System.ArgumentOutOfRangeException: Index was out of range
+
+            #endregion
+
+            #endregion
+
+            #region 06 - ElementAtOrDefault()
+
+            //Return the element is specific index
+            //If index is out of range of sequence indices or sequence is empty => Return The Default value of sequenceType.
+
+            #region 01 - Try to return element in actual index in range of sequence indices.
+
+            //var result = ProductsList.ElementAtOrDefault(0);
+
+            //Console.WriteLine(result);//ProductID:1, ProductName:Chai, Category:Beverages, UnitPrice:$18.00, UnitsInStock:100 
+
+            #endregion
+
+            #region 02 - Try to return element in Invalid index out of sequence indices range.
+
+            //var result02 = ProductsList.ElementAtOrDefault(100);
+
+            //if(result02 != null)
+            //    Console.WriteLine(result02);
+            //else
+            //    Console.WriteLine("index is out of range of sequence indices || sequence is empty");//index is out of range of sequence indices || sequence is empty
+
+            #endregion
+
+            #region 03 - Try to return element in empty sequence.
+
+            //List<Product> products = new List<Product>();
+            //var result03 = products.ElementAtOrDefault(0);
+
+            //if (result03 != null)
+            //    Console.WriteLine(result03);
+            //else
+            //    Console.WriteLine("index is out of range of sequence indices || sequence is empty");//index is out of range of sequence indices || sequence is empty
+
+            #endregion
+
+            #endregion
+
+            #region 07 - Single
+
+            #region 01 Single()
+
+            //Return the only element of a sequence
+            //Throw Exception => if the sequence not contain exactly one element. [System.InvalidOperationException: Sequence contains more than one element]
+            //Throw Exception => if the sequence is empty. [System.InvalidOperationException: Sequence contain no elements]
+
+            #region 01 - In case The sequence contain exactly one element
+
+            //List<Product> products = new List<Product>(1)
+            //{
+            //    new Product(){ProductID = 100, Category = "Meat", ProductName ="Locus", UnitPrice = 1500, UnitsInStock = 100}
+            //};
+
+            //var result = products.Single();
+
+            //Console.WriteLine(result);//ProductID:100, ProductName:Locus, Category:Meat, UnitPrice:$1,500.00, UnitsInStock:100
+
+            #endregion
+
+            #region 02 - In case The sequence Contain more than one element.
+
+            //var result = ProductsList.Single();
+
+            //Console.WriteLine(result);//System.InvalidOperationException: Sequence contains more than one element
+
+            #endregion
+
+            #region 03 - In case The sequence is empty.
+
+            //List<Product> products = new List<Product>();
+
+            //var result = products.Single();
+
+            //Console.WriteLine(result);//System.InvalidOperationException: Sequence contains no elements
+
+            #endregion
+
+            #endregion
+
+            #region 02 Single(Func<Product,bool> predicate)
+
+            //Return the only element of a sequence that satisfy the specified condition
+            //Throw Exception => if there are more than one element satisfy the condition [System.InvalidOperationException: Sequence contains more than one matching element]
+            //Throw Exception => if the sequence not contain any elements match the condition or it's empty. [Sequence contains no matching element]
+
+            #region 01 - In case The sequence contain exactly one element satisfy the condition
+
+            //List<Product> products = new List<Product>(1)
+            //{
+            //    new Product(){ProductID = 100, Category = "Meat", ProductName ="Locus", UnitPrice = 1500, UnitsInStock = 100},
+            //    new Product(){ProductID = 200, Category = "Veg", ProductName ="Umber", UnitPrice = 1500, UnitsInStock = 0},
+            //    new Product(){ProductID = 400, Category = "Noin", ProductName ="Somgn", UnitPrice = 1500, UnitsInStock = 0}
+            //};
+
+            //var result = products.Single(p => p.UnitsInStock == 100);
+
+            //Console.WriteLine(result);//ProductID:100, ProductName:Locus, Category:Meat, UnitPrice:$1,500.00, UnitsInStock:100
+
+            #endregion
+
+            #region 02 - In case The sequence Contain more than one element satisfy the condition.
+
+            //List<Product> products = new List<Product>(1)
+            //{
+            //    new Product(){ProductID = 100, Category = "Meat", ProductName ="Locus", UnitPrice = 1500, UnitsInStock = 100},
+            //    new Product(){ProductID = 200, Category = "Veg", ProductName ="Umber", UnitPrice = 1500, UnitsInStock = 0},
+            //    new Product(){ProductID = 400, Category = "Noin", ProductName ="Somgn", UnitPrice = 1500, UnitsInStock = 0}
+            //};
+
+            //var result = products.Single(p => p.UnitsInStock == 0);
+
+            //Console.WriteLine(result);//System.InvalidOperationException: Sequence contains no matching elementt
+
+            #endregion
+
+            #region 03 - In case The sequence ot contain any elements match the condition or it's empty.
+
+            //var result = ProductsList.Single(p => p.UnitsInStock == 700);
+
+            //Console.WriteLine(result);//System.InvalidOperationException: Sequence contains no matching element
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region 07 - SingleOrDefault
+
+            #region 01 SingleOrDefault()
+
+            //Return the only element of a sequence
+            //Return the default value of sequence Type if no elements exists [sequence is empty]
+            //Throw Exception => if the sequence not contain exactly one element. [System.InvalidOperationException: Sequence contains more than one element]
+
+            #region 01 - In case The sequence contain exactly one element
+
+            //List<Product> products = new List<Product>(1)
+            //{
+            //    new Product(){ProductID = 100, Category = "Meat", ProductName ="Locus", UnitPrice = 1500, UnitsInStock = 100}
+            //};
+
+            //var result = products.SingleOrDefault();
+
+            //Console.WriteLine(result);//ProductID:100, ProductName:Locus, Category:Meat, UnitPrice:$1,500.00, UnitsInStock:100
+
+            #endregion
+
+            #region 02 - In case The sequence Contain more than one element.
+
+            //var result = ProductsList.SingleOrDefault();
+
+            //Console.WriteLine(result);//System.InvalidOperationException: Sequence contains more than one element
+
+            #endregion
+
+            #region 03 - In case The sequence is empty.
+
+            //List<Product> products = new List<Product>();
+
+            //var result = products.SingleOrDefault();
+
+            //if (result != null)
+            //    Console.WriteLine(result);
+            //else
+            //    Console.WriteLine("Sequence is empty!");
+
+            #endregion
+
+            #endregion
+
+            #region 02 SingleOrDefault(Func<Product,bool> predicate)
+
+            //Return the only element of a sequence that satisfy the specified condition
+            //Return the default value of sequence Type if no elements match the condition or sequence is empty.
+            //Throw Exception => if there are more than one element satisfy the condition [System.InvalidOperationException: Sequence contains more than one matching element]
+
+            #region 01 - In case The sequence contain exactly one element satisfy the condition
+
+            //List<Product> products = new List<Product>(1)
+            //{
+            //    new Product(){ProductID = 100, Category = "Meat", ProductName ="Locus", UnitPrice = 1500, UnitsInStock = 100},
+            //    new Product(){ProductID = 200, Category = "Veg", ProductName ="Umber", UnitPrice = 1500, UnitsInStock = 0},
+            //    new Product(){ProductID = 400, Category = "Noin", ProductName ="Somgn", UnitPrice = 1500, UnitsInStock = 0}
+            //};
+
+            //var result = products.SingleOrDefault(p => p.UnitsInStock == 100);
+
+            //Console.WriteLine(result);//ProductID:100, ProductName:Locus, Category:Meat, UnitPrice:$1,500.00, UnitsInStock:100
+
+            #endregion
+
+            #region 02 - In case The sequence Contain more than one element satisfy the condition.
+
+            //List<Product> products = new List<Product>(1)
+            //{
+            //    new Product(){ProductID = 100, Category = "Meat", ProductName ="Locus", UnitPrice = 1500, UnitsInStock = 100},
+            //    new Product(){ProductID = 200, Category = "Veg", ProductName ="Umber", UnitPrice = 1500, UnitsInStock = 0},
+            //    new Product(){ProductID = 400, Category = "Noin", ProductName ="Somgn", UnitPrice = 1500, UnitsInStock = 0}
+            //};
+
+            //var result = products.SingleOrDefault(p => p.UnitsInStock == 0);
+
+            //Console.WriteLine(result);//System.InvalidOperationException: Sequence contains no matching elementt
+
+            #endregion
+
+            #region 03 - In case No elements in sequence match the condition or  sequence is empty.
+
+            //List<Product> products = new List<Product>()
+            //{
+            //    new Product{ProductID = 10, Category = "aaaa", ProductName = "dddd", UnitsInStock = 100, UnitPrice =10},
+            //    new Product{ProductID = 10, Category = "aaaa", ProductName = "dddd", UnitsInStock = 100, UnitPrice =10},
+            //    new Product{ProductID = 10, Category = "aaaa", ProductName = "dddd", UnitsInStock = 100, UnitPrice =10},
+            //};
+
+            //var result = products.SingleOrDefault(p => p.UnitsInStock == 0);
+
+            //if (result != null)
+            //    Console.WriteLine(result);
+            //else
+            //    Console.WriteLine("there is No elements match the condition || Sequence is empty!");//there is No elements match the condition || Sequence is empty!
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region Hybrid Syntax - QuerySyntax + FluentSyntax - (Query Expression).(Fluent Syntax[LinQ operator])
+
+            ////Get the first element that units in stock of it is zero, get name,price,category.
+            
+            //var result = (from product in ProductsList
+            //             where product.UnitsInStock == 0
+            //             select new
+            //             {
+            //                 product.ProductName,
+            //                 product.UnitPrice,
+            //                 product.Category
+            //             }).FirstOrDefault();
+
+            //Console.WriteLine(result);//{ ProductName = Chef Anton's Gumbo Mix, UnitPrice = 21.3500, Category = Condiments }
+            
             #endregion
 
             #endregion
